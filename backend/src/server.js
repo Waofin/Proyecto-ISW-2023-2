@@ -15,7 +15,11 @@ const { setupDB } = require("./config/configDB.js");
 // Importa el handler de errores
 const { handleFatalError, handleError } = require("./utils/errorHandler.js");
 const { createRoles, createUsers } = require("./config/initialSetup");
-
+require("dotenv").config();
+const formularioRoute = require("./routes/formulario.routes.js");
+const app = express();
+app.use(express.json());
+app.use("api/", formularioRoute);
 /**
  * Inicia el servidor web
  */
